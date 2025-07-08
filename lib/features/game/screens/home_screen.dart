@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:brain_training_time_attack/features/game/screens/single_player_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -48,7 +49,11 @@ class HomeScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    // TODO: ひとりで遊ぶ画面へ遷移
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const SinglePlayerScreen(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 16),
@@ -67,6 +72,12 @@ class HomeScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     // TODO: ふたりで遊ぶ画面へ遷移
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('ふたりで遊ぶ機能は準備中です'),
+                        duration: Duration(seconds: 2),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 16),
